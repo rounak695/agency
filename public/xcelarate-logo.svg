@@ -1,0 +1,55 @@
+<svg
+  viewBox="0 0 100 100"
+  width="100"
+  height="100"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Xcelarate Logo"
+>
+  <title>Xcelarate Logo</title>
+
+  <defs>
+    <!-- Blue gradient (left chevron — top layer) -->
+    <linearGradient id="brandBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#8C9CFF" />
+      <stop offset="100%" stop-color="#5064FF" />
+    </linearGradient>
+
+    <!-- Red gradient (right chevron — bottom layer) -->
+    <linearGradient id="brandRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FF8E8E" />
+      <stop offset="100%" stop-color="#FF6B6B" />
+    </linearGradient>
+  </defs>
+
+  <g>
+    <!-- 1. Right Chevron (Red — Bottom Layer) -->
+    <path
+      d="M 72 20 L 52 40 L 52 60 L 72 80"
+      stroke="url(#brandRed)"
+      stroke-width="18"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <!-- 2. 3D Extrusion / Shadow Layer (Navy) -->
+    <path
+      d="M 28 20 L 48 40 L 48 60 L 28 80"
+      stroke="#16161D"
+      stroke-width="18"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      transform="translate(6,6)"
+    />
+
+    <!-- 3. Left Chevron (Blue — Top Layer) -->
+    <path
+      d="M 28 20 L 48 40 L 48 60 L 28 80"
+      stroke="url(#brandBlue)"
+      stroke-width="18"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+</svg>
