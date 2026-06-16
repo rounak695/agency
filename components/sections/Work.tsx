@@ -11,7 +11,7 @@ const PROJECTS = [
     title: "Premium Cinematic Web",
     desc: "End-to-end brand identity and website for a premium visual production studio.",
     chips: ["→ +300% Engagement", "→ Production-Ready", "→ Brand System"],
-    img: "/work/trupixel.jpg",
+    img: "/work/trupixel.svg",
   },
   {
     client: "Abstract Guitar",
@@ -19,7 +19,7 @@ const PROJECTS = [
     title: "Raga Meets Rock",
     desc: "Brand identity for an artist blending Indian classical with modern rock aesthetics.",
     chips: ["→ Unique Identity", "→ Full Asset Suite", "→ Social Kit"],
-    img: "/work/abstract-guitar.jpg",
+    img: "/work/abstract-guitar.svg",
   },
   {
     client: "NCETBuddy",
@@ -27,7 +27,7 @@ const PROJECTS = [
     title: "India's Prep Buddy",
     desc: "Complete brand system, website, and digital presence for a student-first EdTech platform.",
     chips: ["→ Full Platform", "→ Student-First Design", "→ Mobile-Optimized"],
-    img: "/work/ncetbuddy.jpg",
+    img: "/work/ncetbuddy.svg",
   },
 ];
 
