@@ -151,10 +151,10 @@ export default function Footer() {
           &copy; 2026 Xcelarate Studio. Built in India 🇮🇳 by Rounak &amp; Ravi.
         </p>
         <div style={{ display: "flex", gap: 24 }}>
-          {["Privacy", "Terms"].map((l) => (
+          {[{ label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" }].map((l) => (
             <a
-              key={l}
-              href="#"
+              key={l.label}
+              href={l.href}
               style={{
                 fontFamily: "var(--font)",
                 fontWeight: 400,
@@ -168,7 +168,7 @@ export default function Footer() {
                 (e.currentTarget.style.color = "var(--text-dim)")
               }
             >
-              {l}
+              {l.label}
             </a>
           ))}
         </div>

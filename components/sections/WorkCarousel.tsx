@@ -38,6 +38,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      className="workcarousel-card"
       style={{
         width: 480,
         height: 600,
@@ -216,6 +217,7 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
 function PlaceholderCard() {
   return (
     <div
+      className="workcarousel-card"
       style={{
         width: 480,
         height: 600,
@@ -382,6 +384,21 @@ export default function WorkCarousel() {
         onMouseMove={onMouseMove}
         onMouseUp={onMouseEnd}
         onMouseLeave={onMouseEnd}
+        onTouchStart={(e) => {
+          const touch = e.touches[0];
+          isDragging.current = true;
+          startX.current = touch.pageX - (scrollRef.current?.offsetLeft ?? 0);
+          scrollLeft.current = scrollRef.current?.scrollLeft ?? 0;
+        }}
+        onTouchMove={(e) => {
+          if (!isDragging.current || !scrollRef.current) return;
+          const touch = e.touches[0];
+          const x = touch.pageX - scrollRef.current.offsetLeft;
+          const walk = (x - startX.current) * 1.5;
+          scrollRef.current.scrollLeft = scrollLeft.current - walk;
+        }}
+        onTouchEnd={onMouseEnd}
+        className="workcarousel-track"
         style={{
           display: "flex",
           overflowX: "scroll",
@@ -395,7 +412,14 @@ export default function WorkCarousel() {
         }}
       >
         <style>{`
-          #work-carousel::-webkit-scrollbar { display: none; }
+          #work-carousel::-webkit-scrollbar, .workcarousel-track::-webkit-scrollbar { display: none; }
+          @media (max-width: 768px) {
+            .workcarousel-track { gap: 12px !important; }
+            .workcarousel-card { width: 320px !important; height: 500px !important; }
+          }
+          @media (max-width: 480px) {
+            .workcarousel-card { width: 280px !important; height: 460px !important; }
+          }
         `}</style>
         {PROJECTS.map((p, i) => (
           <ProjectCard key={i} project={p} />

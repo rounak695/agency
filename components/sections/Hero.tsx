@@ -17,7 +17,7 @@ const wordVariant = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
+    transition: { duration: 0.7, ease: "easeOut" as const },
   },
 };
 
@@ -184,6 +184,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1 }}
+        className="hero-stats"
         style={{
           position: "absolute",
           bottom: 40,
@@ -227,6 +228,16 @@ export default function Hero() {
           </motion.div>
         ))}
       </motion.div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-stats {
+            position: static !important;
+            margin-top: 48px;
+            gap: 32px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

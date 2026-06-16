@@ -10,6 +10,9 @@ export default function CustomCursor() {
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
+    const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    if (isTouchDevice) return;
+
     const ring = ringRef.current;
     if (!ring) return;
 

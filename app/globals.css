@@ -35,9 +35,20 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
 }
 
 * { cursor: none !important; }
+
+@media (hover: none) and (pointer: coarse) {
+  html, * { cursor: auto !important; }
+  #cursor-ring { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  html { scroll-behavior: auto; }
+}
 
 body {
   background: var(--bg);
@@ -330,5 +341,20 @@ body {
 @media (max-width: 640px) {
   .process-grid {
     grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding-y: clamp(60px, 15vw, 100px);
+  }
+  .service-row {
+    grid-template-columns: 32px 1fr !important;
+    gap: 6px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  .srv-name {
+    font-size: clamp(16px, 4vw, 20px) !important;
   }
 }

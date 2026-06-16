@@ -10,6 +10,9 @@ export default function SmoothScroll({
   const lenisRef = useRef<unknown>(null);
 
   useEffect(() => {
+    const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    if (isTouchDevice) return;
+
     let lenis: {
       raf: (time: number) => void;
       destroy: () => void;
